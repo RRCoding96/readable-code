@@ -1,32 +1,15 @@
 package cleancode.minesweeper.tobe.cell;
 
-public abstract class Cell {
+public interface Cell {
 
-    protected static final String FLAG_SIGN = "⚑";
-    protected static final String UNCHECKED_SIGN = "□";
+    String FLAG_SIGN = "⚑";
+    String UNCHECKED_SIGN = "□";
 
-    protected boolean isFlagged;
-    protected boolean isOpened;
-
-    public abstract boolean isLandMine();
-
-    public abstract boolean hasLandMineCount();
-
-    public abstract String getSign();
-
-    public void flag() {
-        this.isFlagged = true;
-    }
-
-    public void open() {
-        this.isOpened = true;
-    }
-
-    public boolean isOpened() {
-        return this.isOpened;
-    }
-
-    public boolean isChecked() {
-        return this.isFlagged || this.isOpened;
-    }
+    boolean isLandMine();
+    boolean hasLandMineCount();
+    String getSign();
+    void flag();
+    void open();
+    boolean isOpened();
+    boolean isChecked();
 }
